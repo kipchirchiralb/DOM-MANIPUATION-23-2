@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Manager</title>
+    <link rel="stylesheet" href="./product-manager.css">
+</head>
+
+<body>
+    <h1>Products Management System</h1>
+    <form id="my-form">
+        <label for="product-name">Product Name</label>
+        <input type="text" name="product-name" value="Phone" id="product-name">
+        <label for="description">Product Description</label>
+        <input type="text" name="description" id="description">
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" id="quantity">
+        <label for="image-link">Image Link</label>
+        <input type="text" name="image-link" id="image-link">
+        <button class="save-product">Save</button>
+    </form>
+    <div class="products">
+        <div class="product">
+            <img src="https://picsum.photos/200" alt="product name">
+            <span>Product name</span>
+            <span>4</span>
+            <p>Description</p>
+        </div>
+    </div>
+
+    <script src="./product-manager.js"></script>
+</body>
+
+</html>

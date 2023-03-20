@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+form{
+    width: 400px;
+}
+input, label,button, img{
+    width: 100%;
+    display: block;
+}
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 20px;
+}
+.product{
+    width: 300px;
+}
