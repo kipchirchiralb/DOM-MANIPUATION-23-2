@@ -1,14 +1,4 @@
-let form = document.getElementsByTagName("form")[0]
-let saveButton = document.querySelector(".save-product") 
-
-let productNameInput = document.querySelector("#product-name")
-let descriptionInput = document.querySelector("#description")
-let quantityInput = document.querySelector("#quantity")
-let imageLinkInput = document.querySelector("#image-link")
-
-let productsContainer = document.querySelector(".products")
-
-let products = [
+const products = [
     {
     "id": 1,
     "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -251,101 +241,14 @@ let products = [
     }
     ]
 
-function renderProducts(prods){
-    prods.forEach(function(product){
-        let productCard = document.createElement("div")
-
-
-        let productImageElement = document.createElement("img")
-
-        productImageElement.setAttribute("src", product.image)
-        productImageElement.setAttribute("alt", product.title)
-
-        let productName = document.createElement("span")
-        productName.textContent = product.title
-        productName.style.fontWeight = "bold"
-        productName.style.fontSize = "32px"
-
-        let productPrice = document.createElement("p")
-        productPrice.textContent = product.price
-
-        let descriptionElement = document.createElement("p")
-        descriptionElement.textContent = product.description
-
-        let deleteButtonElement = document.createElement("button")
-        deleteButtonElement.className = "delete-button"
-
-        deleteButtonElement.setAttribute("id", product.id)
-        deleteButtonElement.textContent = "DELETE"
-        // deleteButtonElement.id = product.id
-        // append created elements into productCard
-
-        productCard.classList.add("product")
-
-        productCard.append(productImageElement)
-        productCard.append(productName)
-        productCard.append(productPrice)
-        productCard.append(descriptionElement)
-        productCard.append(deleteButtonElement)
-        // append productCard into products Container
-        productsContainer.append(productCard)
-
-    })
-}
-renderProducts(products)
-
-form.onsubmit = function(e){
-    console.log(e.formData)
-    e.preventDefault() //http req
-    console.log("Saving Products Data")
-    let productCard = document.createElement("div")
-    let productImageElement = document.createElement("img")
-    productImageElement.setAttribute("src", imageLinkInput.value)
-    productImageElement.setAttribute("alt", productNameInput.value)
-    let productName = document.createElement("span")
-    productName.textContent = productNameInput.value
-    let productQuantity = document.createElement("span")
-    productQuantity.textContent = quantityInput.value
-    let descriptionElement = document.createElement("p")
-    descriptionElement.textContent = descriptionInput.value
-    // append created elements into productCard
-    productCard.classList.add("product")
-    productCard.append(productImageElement)
-    productCard.append(productName)
-    productCard.append(productQuantity)
-    productCard.append(descriptionElement)
-    // append productCard into products Container
-    productsContainer.append(productCard)
-}
-
+// using filter method , create a function that deletes a product given its id e.g. deleteProduct(4)
 function deleteProduct(id){
     return products.filter(product=>product.id !== id)
 }
 
-document.querySelectorAll(".delete-button").forEach(btn=>{
+console.log(deleteProduct(1))
 
-    btn.addEventListener("click", (event)=>{
-        console.log(event.target.id) // provent propagation
-        // let targetBtn = document.getElementById(event.target.id)
-        let targetProduct = event.target.parentElement
-        targetProduct.style.display = "none"
-        products =  deleteProduct(Number(event.target.id))
-        console.log(products)
-        productsContainer.innerHTML = ""
-        renderProducts(products)
-    })
-    
-})
+// console.log(deleteProduct(4))
 
-// console.log(saveButton)
-
-// const formData = new FormData(form)
-
-
-
-// create a button and nav
-// by default let nav be hidden(display:none)
-// add an event listener to the button which makes the nav visible on click and hides it in the subsequent click
-// news home page
-
-// netflix FAQ section
+// sort the products by its rate value
+// fp in js - hof

@@ -18,4 +18,9 @@ input, label,button, img{
 }
 .product{
     width: 300px;
+    padding: 20px;
+}
+.product img{
+    height: 300px;
+    object-fit: cover;
 }
